@@ -60,3 +60,17 @@ function pct(score, max) {
 const INPUT_CLS =
   'w-20 border-2 border-indigo-200 rounded-lg px-2 py-1 text-center ' +
   'font-mono text-sm focus:outline-none focus:border-indigo-500 bg-white';
+
+/**
+ * Global guard: prevent any number input from going negative.
+ * Uses capture phase so the clamp runs before each page's own oninput handler,
+ * ensuring calc/onVecChange always sees a non-negative value.
+ */
+document.addEventListener('input', function(e) {
+  if (e.target.type === 'number') {
+    const val = parseFloat(e.target.value);
+    if (!isNaN(val) && val < 0) {
+      e.target.value = 0;
+    }
+  }
+}, true);

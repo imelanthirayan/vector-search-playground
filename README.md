@@ -2,6 +2,10 @@
 
 An interactive, browser-based visual explainer for common vector index types used in vector databases.
 
+## How to use
+
+https://imelanthirayan.github.io/vector-search-playground/
+
 ## What it covers
 
 | Index | Description |
@@ -13,9 +17,7 @@ An interactive, browser-based visual explainer for common vector index types use
 | HNSW | Graph-based approximate nearest neighbor search |
 | DiskANN | RAM + disk hybrid search for billion-scale data |
 
-## How to use
 
-https://imelanthirayan.github.io/vector-search-playground/
 
 ## Who is this for
 
