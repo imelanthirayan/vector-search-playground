@@ -15,38 +15,7 @@ An interactive, browser-based visual explainer for common vector index types use
 
 ## How to use
 
-Open `index.html` in any browser. No server, no install, no build step needed.
-
-Each index page has editable inputs. Change any value and the results update live.
-
-## Stack
-
-- Plain HTML
-- Vanilla JavaScript
-- Tailwind CSS (CDN)
-
-## Files
-
-```
-index.html       Home page with index cards
-flat.html        FLAT index demo
-ivf-flat.html    IVF_FLAT index demo
-ivf-pq.html      IVF_PQ index demo
-ivf-sq8.html     IVF_SQ8 index demo
-hnsw.html        HNSW index demo
-diskann.html     DiskANN index demo
-script.js        Shared utilities (cosine similarity, helpers)
-```
-
-## Similarity method
-
-All demos use cosine similarity.
-
-```
-similarity = dot(A, B) / (|A| * |B|)
-```
-
-Vectors are 3-dimensional. All values are editable in real time.
+https://imelanthirayan.github.io/vector-search-playground/
 
 ## Who is this for
 
