@@ -1,0 +1,37 @@
+# Vector Index Visual Explorer
+
+## Project summary
+
+This is a static web app that visually explains how vector index types work. It runs entirely in the browser with no server or build step. Each page is a self-contained interactive demo where users can edit vector values and see live results.
+
+## Index types covered
+
+- FLAT: Scans every stored vector. Exact results. Slow at scale.
+- IVF_FLAT: Divides vectors into clusters. Searches only the nearest cluster.
+- IVF_PQ: Compresses vectors into short codes using product quantization. Trades accuracy for memory.
+- IVF_SQ8: Converts 32-bit floats to 8-bit integers. 75% memory reduction with minimal accuracy loss.
+- HNSW: Builds a navigable graph. Hops node to node to find the nearest neighbor fast.
+- DiskANN: Keeps frequently accessed vectors in RAM, rest on disk. Handles large datasets with small memory.
+
+## Tech stack
+
+- HTML, CSS (Tailwind CDN), Vanilla JavaScript
+- No frameworks, no build tools, no dependencies to install
+
+## File list
+
+- index.html: Home page
+- flat.html, ivf-flat.html, ivf-pq.html, ivf-sq8.html, hnsw.html, diskann.html: One page per index type
+- script.js: Shared cosine similarity function and input helpers
+
+## Similarity formula
+
+cosine_similarity(A, B) = dot_product(A, B) / (magnitude(A) * magnitude(B))
+
+## Interaction model
+
+Every input on every page is editable. Results recompute on every keystroke. No submit button needed.
+
+## Intended audience
+
+Beginners learning vector search concepts. Applicable to any vector database platform.

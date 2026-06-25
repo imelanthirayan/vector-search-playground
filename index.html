@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vector Index Visual Explorer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','sans-serif']}}}}</script>
+</head>
+<body class="bg-gray-100 min-h-screen font-sans">
+
+<header class="bg-white shadow-sm">
+  <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between gap-4 flex-wrap">
+    <div class="flex items-center gap-4">
+      <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-xl">🔍</div>
+      <div>
+        <h1 class="text-xl font-extrabold text-slate-800 leading-tight">Vector Index Visual Explorer</h1>
+        <p class="text-sm text-slate-500">Learn how vector indexes work · platform-agnostic · interactive demos</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="px-3 py-1 rounded-full text-xs font-semibold bg-indigo-100 text-indigo-700">6 Index Types</span>
+      <span class="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-700">3D Vectors</span>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-7xl mx-auto px-5 py-8">
+
+  <div class="mb-6 text-center">
+    <h2 class="text-base font-semibold text-slate-600">These index types are used in vector databases like Milvus, Weaviate, Qdrant, and more</h2>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+    <div class="bg-white rounded-2xl shadow-sm overflow-hidden flex flex-col hover:shadow-lg transition-shadow duration-200 group">
+      <div class="bg-indigo-500 px-5 pt-5 pb-4 flex items-center gap-3">
+        <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center text-2xl">🔍</div>
+        <h3 class="text-lg font-bold text-white">FLAT</h3>
+      </div>
+      <div class="p-5 flex flex-col flex-1">
+        <p class="text-slate-500 text-sm flex-1 mb-4 leading-relaxed">Brute-force exact search. Checks every stored vector one by one. 100% accurate.</p>
+        <div class="flex gap-2 flex-wrap mb-4"><span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-indigo-100 text-indigo-700">Exact Search</span><span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-red-100 text-red-700">Slow at Scale</span></div>
+        <a href="flat.html" class="block text-center bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold py-2.5 px-4 rounded-xl transition">Explore →</a>
+      </div>
+    </div>
+    <div class="bg-white rounded-2xl shadow-sm overflow-hidden flex flex-col hover:shadow-lg transition-shadow duration-200 group">
+      <div class="bg-blue-500 px-5 pt-5 pb-4 flex items-center gap-3">
+        <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center text-2xl">📦</div>
+        <h3 class="text-lg font-bold text-white">IVF_FLAT</h3>
+      </div>
+      <div class="p-5 flex flex-col flex-1">
+        <p class="text-slate-500 text-sm flex-1 mb-4 leading-relaxed">Groups vectors into clusters, then searches only the nearest cluster.</p>
+        <div class="flex gap-2 flex-wrap mb-4"><span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-700">Cluster Search</span><span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-green-100 text-green-700">Faster</span></div>
+        <a href="ivf-flat.html" class="block text-center bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold py-2.5 px-4 rounded-xl transition">Explore →</a>
+      </div>
+    </div>
+    <div class="bg-white rounded-2xl shadow-sm overflow-hidden flex flex-col hover:shadow-lg transition-shadow duration-200 group">
+      <div class="bg-purple-500 px-5 pt-5 pb-4 flex items-center gap-3">
+        <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center text-2xl">💾</div>
+        <h3 class="text-lg font-bold text-white">IVF_PQ</h3>
+      </div>
+      <div class="p-5 flex flex-col flex-1">
+        <p class="text-slate-500 text-sm flex-1 mb-4 leading-relaxed">Compresses vectors into short codes. Huge memory savings with slight accuracy trade-off.</p>
+        <div class="flex gap-2 flex-wrap mb-4"><span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-purple-100 text-purple-700">Compression</span><span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-pink-100 text-pink-700">Memory Saving</span></div>
+        <a href="ivf-pq.html" class="block text-center bg-purple-600 hover:bg-purple-700 text-white text-sm font-semibold py-2.5 px-4 rounded-xl transition">Explore →</a>
+      </div>
+    </div>
+    <div class="bg-white rounded-2xl shadow-sm overflow-hidden flex flex-col hover:shadow-lg transition-shadow duration-200 group">
+      <div class="bg-teal-500 px-5 pt-5 pb-4 flex items-center gap-3">
+        <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center text-2xl">🔢</div>
+        <h3 class="text-lg font-bold text-white">IVF_SQ8</h3>
+      </div>
+      <div class="p-5 flex flex-col flex-1">
+        <p class="text-slate-500 text-sm flex-1 mb-4 leading-relaxed">Converts 32-bit floats to 8-bit integers. 75% less memory, minimal accuracy loss.</p>
+        <div class="flex gap-2 flex-wrap mb-4"><span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-teal-100 text-teal-700">8-bit Quant</span><span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-green-100 text-green-700">75% Less RAM</span></div>
+        <a href="ivf-sq8.html" class="block text-center bg-teal-600 hover:bg-teal-700 text-white text-sm font-semibold py-2.5 px-4 rounded-xl transition">Explore →</a>
+      </div>
+    </div>
+    <div class="bg-white rounded-2xl shadow-sm overflow-hidden flex flex-col hover:shadow-lg transition-shadow duration-200 group">
+      <div class="bg-orange-500 px-5 pt-5 pb-4 flex items-center gap-3">
+        <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center text-2xl">🕸️</div>
+        <h3 class="text-lg font-bold text-white">HNSW</h3>
+      </div>
+      <div class="p-5 flex flex-col flex-1">
+        <p class="text-slate-500 text-sm flex-1 mb-4 leading-relaxed">Builds a navigable graph. Jumps node-to-node to find the nearest neighbor fast.</p>
+        <div class="flex gap-2 flex-wrap mb-4"><span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-orange-100 text-orange-700">Graph Search</span><span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-700">Very Fast</span></div>
+        <a href="hnsw.html" class="block text-center bg-orange-600 hover:bg-orange-700 text-white text-sm font-semibold py-2.5 px-4 rounded-xl transition">Explore →</a>
+      </div>
+    </div>
+    <div class="bg-white rounded-2xl shadow-sm overflow-hidden flex flex-col hover:shadow-lg transition-shadow duration-200 group">
+      <div class="bg-emerald-500 px-5 pt-5 pb-4 flex items-center gap-3">
+        <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center text-2xl">💿</div>
+        <h3 class="text-lg font-bold text-white">DiskANN</h3>
+      </div>
+      <div class="p-5 flex flex-col flex-1">
+        <p class="text-slate-500 text-sm flex-1 mb-4 leading-relaxed">Keeps hot vectors in RAM, rest on disk. Handles billion-scale with small memory.</p>
+        <div class="flex gap-2 flex-wrap mb-4"><span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-700">RAM + Disk</span><span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-700">Billion Scale</span></div>
+        <a href="diskann.html" class="block text-center bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold py-2.5 px-4 rounded-xl transition">Explore →</a>
+      </div>
+    </div>
+  </div>
+
+  <p class="mt-6 text-center text-xs text-slate-400">All demos use cosine similarity · 3-dimensional vectors · every value is editable in real time</p>
+</main>
+
+<footer class="text-center text-slate-400 text-xs py-5 border-t border-gray-200 mt-4">
+  Vector Index Visual Explorer | HTML · Tailwind CSS · Vanilla JS
+</footer>
+
+</body>
+</html>
